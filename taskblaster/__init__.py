@@ -16,10 +16,10 @@ def RunTasks(tasks):
         i += size
 
     for j in stencil:
-        print(rank, " ", tasks[j])
+        print(rank, ": ", tasks[j])
         status = ge.run(tasks[j])
-        print("Return code: ", status.returncode)
-        print("Stdout: ", status.stdout)
-        print("Stderr: ", status.stderr)
+        print(rank, ": ", "Return code: ", status.returncode)
+        print(rank, ": ", "Stdout: ", status.stdout)
+        print(rank, ": ", "Stderr: ", status.stderr)
 
     comm.Barrier()
